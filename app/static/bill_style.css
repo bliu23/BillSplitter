@@ -1,0 +1,28 @@
+.num {
+	width : 50px;
+}
+
+
+body {
+	text-align: center;
+}
+
+#firstForm {
+	padding-bottom: 10px;
+}
+
+#inputFields {
+	margin:auto;
+	width:40%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.nametax_Input {
+	padding-bottom: 10px;
+}
+
+
+/*input[type=text]{
+	width : 10%;
+}*/

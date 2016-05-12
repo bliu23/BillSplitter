@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<link rel= "stylesheet" type= "text/css" href="{{ url_for('static', filename='bill_style.css')}}">
+        <script type="text/javascript" src="{{ url_for('static', filename='bill_script.js') }}"></script>
+      <!--   <link rel="stylesheet" type="text/css" href="style.css"/>
+ -->    </head>
+	<body>
+		<h1>Bill Splitter</h1>
+		<p>Please enter the tax rate as well as the tip percent.</p>
+		<form name="rateSelector">
+			<div id="firstForm">
+				<label>Tax Rate:</label>
+				<input class="num" type="number" name="tax" min="0">%
+				<label>Tip Percent:</label>
+				<input class="num" type="number" name="tip" min="0">% <br>
+
+				<label>Number of people paying:</label>
+				<input class="num" type="number" name="numPeople" min="0">
+				<input type="button" value="Pay now." onClick="createInputFields()">
+			</div>
+			<div id="inputFields"></div>
+
+			<!-- <label>Name:</label>
+			<input type="text" name="person">
+			<label>Pre-Tax Due:</label>
+			<input class="num" type="text" name="amountDue">
+			<input type="button" value="How much do I owe?" onClick="processReq()"> -->
+
+		</form>
+		<div id="individualOutput"></div>
+
+	</body>
+
+</html>
+
+<!-- 
+		<button onclick="welcome('Welcome, I am Brandon')">Hi!</button> -->
