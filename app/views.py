@@ -11,7 +11,7 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-	form = LoginForm()
+	form = LoginForm();
 	if form.validate_on_submit():
 		flash('Login requested for OpenId="%s", remember_me=%s' %
 			(form.openid.data, str(form.remember_me.data)))
@@ -19,6 +19,6 @@ def login():
 
 	return render_template('login.html', title='Sign In', form=form)
 
-@app.route('/testhtml')
+@app.route('/split')
 def display():
-	return render_template('test.html', title = 'Test')
+	return render_template('billsplitter.html', title = 'Test')

@@ -25,7 +25,8 @@ function processReq() {
 		var price = eval(stripSpaces(priceString));
 	
 		//add in tax and tip
-		var total = price * (taxMultiplier) * (tipMultiplier);
+		//var total = price * (taxMultiplier) * (tipMultiplier);
+		var total = price * (1 + tipRate + taxRate);
 		//accumulate outputs
 		output += '<div> ' + name + ' owes $' + total.toFixed(2) + '</div>';
 		//add to the total bill
