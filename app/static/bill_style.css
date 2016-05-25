@@ -1,7 +1,11 @@
 .num {
-	width : 50px;
+	width : 70px;
 }
 
+
+.infield {
+	width:100px;
+}
 
 body {
 	text-align: center;

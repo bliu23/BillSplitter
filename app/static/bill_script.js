@@ -44,8 +44,8 @@ function createInputFields() {
 	var numFields = document.rateSelector.numPeople.value;
 	var tot = "";
 	for(var i = 0; i < numFields; i++) {
-		var name = "<label>Name:</label>" + "<input type='text' id='name"+i+"'>"
-		var price = "<label> Pre-Tax Due:</label>" + "<input type='text' id='price"+i+"'>"
+		var name = "<label>Name:</label>" + "<input class='infield' type='text' id='name"+i+"'>"
+		var price = "<label> Pre-Tax Due:</label>" + "<input class='infield' type='text' id='price"+i+"'>"
 		var input = '<div class="nametax_Input"> ' +name + price + '</div>';
 		tot += input;
 		//document.getElementById("inputFields").innerHTML += input;
