@@ -25,7 +25,6 @@ function processReq() {
 		var price = eval(stripSpaces(priceString));
 	
 		//add in tax and tip
-		//var total = price * (taxMultiplier) * (tipMultiplier);
 		var total = price * (1 + tipRate + taxRate);
 		//accumulate outputs
 		output += '<div> ' + name + ' owes $' + total.toFixed(2) + '</div>';
@@ -44,7 +43,7 @@ function createInputFields() {
 	var numFields = document.rateSelector.numPeople.value;
 	var tot = "";
 	for(var i = 0; i < numFields; i++) {
-		var name = "<label>Name:</label>" + "<input class='infield' type='text' id='name"+i+"'>"
+		var name = "<label>Name:</label>" + "<input class='infield' type='text' value='Person_"+i+"' id='name"+i+"'>"
 		var price = "<label> Pre-Tax Due:</label>" + "<input class='infield' type='text' id='price"+i+"'>"
 		var input = '<div class="nametax_Input"> ' +name + price + '</div>';
 		tot += input;
