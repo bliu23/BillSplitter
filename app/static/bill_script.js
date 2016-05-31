@@ -9,6 +9,10 @@ function processReq() {
 	var tipMultiplier = 1 + tipRate;
 	console.log("test: " + taxRate + " " + tipRate);
 
+	//get totalShared and split into how much each person owes due to this.
+	var totalShared = document.rateSelector.sharedBill.value;
+	var individualShared = totalShared/numFields;
+
 	var totalBill = 0;
 	var output = "";
 	//get each name and price to pay
@@ -22,7 +26,9 @@ function processReq() {
 		if(priceString === "") {
 			priceString = "0";
 		}
+		//get the price, add in individual's shared cost
 		var price = eval(stripSpaces(priceString));
+		price = price + individualShared;
 	
 		//add in tax and tip
 		var total = price * (1 + tipRate + taxRate);
@@ -43,13 +49,19 @@ function createInputFields() {
 	var numFields = document.rateSelector.numPeople.value;
 	var tot = "";
 	for(var i = 0; i < numFields; i++) {
-		var name = "<label>Name:</label>" + "<input class='infield' type='text' value='Person_"+i+"' id='name"+i+"'>"
-		var price = "<label> Pre-Tax Due:</label>" + "<input class='infield' type='text' id='price"+i+"'>"
+		var name = "<label>Name:</label>" + "<input class='infield' type='text' value='Person_"+i+"' id='name"+i+"'>";
+		var price = "<label> Pre-Tax Due:</label>" + "<input class='infield' type='text ' id='price"+i+"'>";
 		var input = '<div class="nametax_Input"> ' +name + price + '</div>';
 		tot += input;
 		//document.getElementById("inputFields").innerHTML += input;
 	}
+		if(document.getElementById("sharedCheck").checked) {
+		tot += "<div class='nametax_Input'> <label> Shared: </label>" + "<input class='infield' type='number' name='sharedBill'> </div>";
+	}
+
 	tot += "<input type='button' value='How much we do owe?' onClick='processReq()'>"
+
+
 
 //	<input type="button" value="How much do I owe?" onClick="processReq()"></div>';
 	document.getElementById("inputFields").innerHTML = tot;
