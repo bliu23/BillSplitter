@@ -10,9 +10,16 @@ function processReq() {
 	console.log("test: " + taxRate + " " + tipRate);
 
 	//get totalShared and split into how much each person owes due to this.
-	var totalShared = document.rateSelector.sharedBill.value;
-	var individualShared = totalShared/numFields;
-
+	var totalShared;
+	var individualShared;
+	if(document.getElementById("sharedCheck").checked) {
+		totalShared = document.rateSelector.sharedBill.value;
+		individualShared = totalShared/numFields;
+	}
+	else {
+		totalShared = 0;
+		individualShared = 0;
+	}
 	var totalBill = 0;
 	var output = "";
 	//get each name and price to pay
